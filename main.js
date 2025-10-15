@@ -1,4 +1,28 @@
+ moises
 let helados = [
+
+/* 5. Calcular estadísticas con métodos de arrays:
+• - a) Precio promedio de todos los productos activos.*/
+let promedioPrecioActivo= helados.filter((h)=>h.estado==="activo")
+.reduce((total, h) => total + h.precio, 0)
+/(helados.filter((h)=>h.estado==="activo").length);
+console.log("Precio promedio (activos):", promedioPrecioActivo, "Bs");
+/*
+• - b) Total de stock general.*/
+let stockGeneral= helados.reduce((total,helado)=>total+helado.stock,0);
+/*
+• - c) Cantidad de productos por categoría. */
+function contarPorCategoria(helados) {
+  let cantidad = [];
+  helados.forEach((h) => {
+    cantidad[h.categoria] = (cantidad[h.categoria] || 0) + 1;
+});
+  return cantidad;
+}
+
+
+let productos = [
+ master
   {
     nombre: "Helado de Vainilla",
     sabor: "Vainilla",
@@ -19,8 +43,10 @@ let helados = [
       nombre: "Helado de Fresa",
       sabor: "Fresa",
       precio: 3,
-      stock: 25,
+      stock: 25, moises
       categoria: "Frutas",
+
+      categoria: "Clásicos" master
       estado: "activo",
     },
     {
@@ -28,7 +54,11 @@ let helados = [
       sabor: "Menta con Chispas",
       precio: 20,
       stock: 20,
+ moises
       categoria: "Doble sabor",
+
+      categoria: "Clásicos",
+ master
       estado: "activo",
     },
     {
@@ -36,7 +66,11 @@ let helados = [
       sabor: "Cookies and Cream",
       precio: 14,
       stock: 15,
+ moises
       categoria: "Doble sabor",
+
+      categoria: "Clásicos",
+ master
       estado: "descontinuado",
     },
     {
@@ -44,7 +78,11 @@ let helados = [
       sabor: "Mango",
       precio: 4,
       stock: 10,
+ moises
       categoria: "Frutas",
+
+      categoria: "Clásicos",
+ master
       estado: "activo",
     },
     {
@@ -68,7 +106,11 @@ let helados = [
       sabor: "Limón",
       precio: 10,
       stock: 8,
+ moises
       categoria: "Frutas",
+
+      categoria: "Clásicos",
+ master
       estado: "activo",
     },
     {
@@ -84,7 +126,11 @@ let helados = [
       sabor: "Avellana",
       precio: 19,
       stock: 10,
+ moises
       categoria: "Frutas",
+
+      categoria: "Clásicos",
+ master
       estado: "activo",
     },
     {
@@ -92,7 +138,11 @@ let helados = [
       sabor: "Coco",
       precio: 6,
       stock: 20,
+ moises
       categoria: "Frutas",
+
+      categoria: "Clásicos",
+ master
       estado: "activo",
     },
     {
@@ -100,7 +150,11 @@ let helados = [
         sabor: "Frambuesa",
         precio: 4,
         stock: 18,
+ moises
         categoria: "Frutas",
+
+        categoria: "Clásicos",
+ master
         estado: "activo",
       },
         {
@@ -137,6 +191,7 @@ console.log("Productos con stock bajo:", productosStockBajo);
 let productosActivos = productos.filter((producto) => producto.estado === "activo");
 console.log("Productos activos:", productosActivos);
 
+ moises
 /* 4 Funcion de descunetos */
 
 
@@ -167,3 +222,56 @@ function aplicarDescuentoClasicas(listaHelados) {
 let heladosConDescuento = aplicarDescuentoClasicas(helados);
 
 console.log(heladosConDescuento);
+
+
+/*------------------ 6. Crear funciones separadas para cada tarea (ej. filtrarPorPrecio, aplicarDescuento,
+calcularPromedio, etc.)*/
+
+// Funcion que muestra todos los productos //
+
+function mostrarProductos(lista) {
+    lista.forEach((producto, index) => {
+        console.log
+        (`$index + 1}.${producto.nombre} - ${producto.sabor} - ${producto.precio} - Stock: ${producto.stock} - ${producto.categoria} (${producto.estado})`
+
+        );
+    });
+}
+
+// funcion para filtrar producto por precio
+
+function filtrarPorPrecio(lista,minimo) {
+    return lista.filter(producto => producto.precio > minimo);
+}
+
+// filtrar productos con stock bajo (menor a 10 piezas)
+function filtrarStock(lista) {
+    return lista.filter(producto => producto.stock < 10);
+}
+
+// funcion para filtrar productos activos
+function filtrarActivos(lista) {
+    return lista.filter(producto => producto.estado === "activo");
+}
+
+// funcion para aplicar 15% de descuento y devolver un nuevo array
+function aplicarDescuento(lista) {
+    return lista.map(producto => ({
+        nombre: producto.nombre,
+        categoria: producto.categoria,
+        precioDescuento: `$${(producto.precio * 0.85) .toFixed(2)}`
+
+    }));
+}
+
+// funcion para calcular el precio de productos activos
+function calcularPromedioActivos (lista) {
+    let activos = filtrarActivos(lista);
+    let total = activos.reduce((suma, producto) => + producto.precio, 0);
+    return `$${(total / activos.length).toFixed(2)}`;
+}
+
+
+
+
+ master
