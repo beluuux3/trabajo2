@@ -121,6 +121,22 @@ let productos = [
         },
 ];
 
+/*  2. Mostrar todos los productos en consola usando forEach.
+*/
+productos.forEach((producto) => {
+    console.log(producto);
+})
+
+/* ---filtro de productos con precio mayor a un valor definido------ */
+let productosCaros = productos.filter((producto) => producto.precio > 10);
+console.log("Productos caros:", productosCaros);
+/* ---filtro de productos con stock bajo (menor a 10 unidades)------ */
+let productosStockBajo = productos.filter((producto) => producto.stock < 10);
+console.log("Productos con stock bajo:", productosStockBajo);
+/* ---filtro de productos activos------ */
+let productosActivos = productos.filter((producto) => producto.estado === "activo");
+console.log("Productos activos:", productosActivos);
+
 
 /*------------------ 6. Crear funciones separadas para cada tarea (ej. filtrarPorPrecio, aplicarDescuento,
 calcularPromedio, etc.)*/
@@ -168,3 +184,7 @@ function calcularPromedioActivos (lista) {
     let total = activos.reduce((suma, producto) => + producto.precio, 0);
     return `$${(total / activos.length).toFixed(2)}`;
 }
+
+
+
+
