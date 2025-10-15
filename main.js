@@ -1,4 +1,5 @@
  moises
+ moises
 let helados = [
 
 /* 5. Calcular estadísticas con métodos de arrays:
@@ -20,7 +21,7 @@ function contarPorCategoria(helados) {
   return cantidad;
 }
 
-
+ master
 let productos = [
  master
   {
@@ -223,6 +224,26 @@ let heladosConDescuento = aplicarDescuentoClasicas(helados);
 
 console.log(heladosConDescuento);
 
+
+
+/* 5. Calcular estadísticas con métodos de arrays:
+• - a) Precio promedio de todos los productos activos.*/
+let promedioPrecioActivo= productos.filter((h)=>h.estado==="activo")
+.reduce((total, h) => total + h.precio, 0)
+/(productos.filter((h)=>h.estado==="activo").length);
+console.log("Precio promedio (activos):", promedioPrecioActivo, "Bs");
+/*
+• - b) Total de stock general.*/
+let stockGeneral= productos.reduce((total,helado)=>total+helado.stock,0);
+/*
+• - c) Cantidad de productos por categoría. */
+function contarPorCategoria(productos) {
+  let cantidad = [];
+  productos.forEach((h) => {
+    cantidad[h.categoria] = (cantidad[h.categoria] || 0) + 1;
+});
+  return cantidad;
+}
 
 /*------------------ 6. Crear funciones separadas para cada tarea (ej. filtrarPorPrecio, aplicarDescuento,
 calcularPromedio, etc.)*/
