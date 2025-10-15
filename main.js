@@ -1,4 +1,3 @@
-
 let productos = [
   {
     nombre: "Helado de Vainilla",
@@ -137,3 +136,5 @@ console.log("Productos con stock bajo:", productosStockBajo);
 /* ---filtro de productos activos------ */
 let productosActivos = productos.filter((producto) => producto.estado === "activo");
 console.log("Productos activos:", productosActivos);
+=======
+];
