@@ -1,4 +1,29 @@
+ moises
+ moises
+let helados = [
+
+/* 5. Calcular estadísticas con métodos de arrays:
+• - a) Precio promedio de todos los productos activos.*/
+let promedioPrecioActivo= helados.filter((h)=>h.estado==="activo")
+.reduce((total, h) => total + h.precio, 0)
+/(helados.filter((h)=>h.estado==="activo").length);
+console.log("Precio promedio (activos):", promedioPrecioActivo, "Bs");
+/*
+• - b) Total de stock general.*/
+let stockGeneral= helados.reduce((total,helado)=>total+helado.stock,0);
+/*
+• - c) Cantidad de productos por categoría. */
+function contarPorCategoria(helados) {
+  let cantidad = [];
+  helados.forEach((h) => {
+    cantidad[h.categoria] = (cantidad[h.categoria] || 0) + 1;
+});
+  return cantidad;
+}
+
+ master
 let productos = [
+ master
   {
     nombre: "Helado de Vainilla",
     sabor: "Vainilla",
@@ -19,8 +44,10 @@ let productos = [
       nombre: "Helado de Fresa",
       sabor: "Fresa",
       precio: 3,
-      stock: 25,
-      categoria: "Clásicos",
+      stock: 25, moises
+      categoria: "Frutas",
+
+      categoria: "Clásicos" master
       estado: "activo",
     },
     {
@@ -28,7 +55,11 @@ let productos = [
       sabor: "Menta con Chispas",
       precio: 20,
       stock: 20,
+ moises
+      categoria: "Doble sabor",
+
       categoria: "Clásicos",
+ master
       estado: "activo",
     },
     {
@@ -36,7 +67,11 @@ let productos = [
       sabor: "Cookies and Cream",
       precio: 14,
       stock: 15,
+ moises
+      categoria: "Doble sabor",
+
       categoria: "Clásicos",
+ master
       estado: "descontinuado",
     },
     {
@@ -44,7 +79,11 @@ let productos = [
       sabor: "Mango",
       precio: 4,
       stock: 10,
+ moises
+      categoria: "Frutas",
+
       categoria: "Clásicos",
+ master
       estado: "activo",
     },
     {
@@ -68,7 +107,11 @@ let productos = [
       sabor: "Limón",
       precio: 10,
       stock: 8,
+ moises
+      categoria: "Frutas",
+
       categoria: "Clásicos",
+ master
       estado: "activo",
     },
     {
@@ -84,7 +127,11 @@ let productos = [
       sabor: "Avellana",
       precio: 19,
       stock: 10,
+ moises
+      categoria: "Frutas",
+
       categoria: "Clásicos",
+ master
       estado: "activo",
     },
     {
@@ -92,7 +139,11 @@ let productos = [
       sabor: "Coco",
       precio: 6,
       stock: 20,
+ moises
+      categoria: "Frutas",
+
       categoria: "Clásicos",
+ master
       estado: "activo",
     },
     {
@@ -100,7 +151,11 @@ let productos = [
         sabor: "Frambuesa",
         precio: 4,
         stock: 18,
+ moises
+        categoria: "Frutas",
+
         categoria: "Clásicos",
+ master
         estado: "activo",
       },
         {
@@ -136,6 +191,38 @@ console.log("Productos con stock bajo:", productosStockBajo);
 /* ---filtro de productos activos------ */
 let productosActivos = productos.filter((producto) => producto.estado === "activo");
 console.log("Productos activos:", productosActivos);
+
+ moises
+/* 4 Funcion de descunetos */
+
+
+function aplicarDescuentoClasicas(listaHelados) {
+  let nuevoArray = listaHelados.map(helado => {
+    
+    if (helado.categoria === "Clásicos") {
+      let precioDescuento = helado.precio * 0.85; 
+      return {
+        nombre: helado.nombre,
+        categoria: helado.categoria,
+        precioConDescuento: precioDescuento.toFixed(2)
+      };
+    } else {
+      
+      return {
+        nombre: helado.nombre,
+        categoria: helado.categoria,
+        precio: helado.precio.toFixed(2)
+      };
+    }
+  });
+
+  return nuevoArray;
+}
+
+
+let heladosConDescuento = aplicarDescuentoClasicas(helados);
+
+console.log(heladosConDescuento);
 
 
 
@@ -208,4 +295,4 @@ function calcularPromedioActivos (lista) {
 
 
 
-
+ master
